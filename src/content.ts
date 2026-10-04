@@ -6,8 +6,6 @@ import type { ShelfSnapshot } from './types'
 
 const ORIGINAL_ROOT_ID = 'pc-hold-books-react-root'
 const ACTIVE_CLASS = 'bws-active'
-// 前回の取得からこれ以上経っていたら、ページを開いたときに差分更新する
-const AUTO_REFRESH_AFTER_MS = 5 * 60 * 1000
 
 function errorMessage(error: unknown): string {
   return error instanceof Error ? error.message : '不明なエラーが発生しました'
@@ -76,11 +74,6 @@ async function main(): Promise<void> {
   }
 
   setState({})
-
-  const snapshot = state.snapshot
-  if (state.prefs.enabled && snapshot && Date.now() - new Date(snapshot.fetchedAt).getTime() > AUTO_REFRESH_AFTER_MS) {
-    actions.refreshRecent()
-  }
 }
 
 main().catch(error => console.error('[bookwalker-shelf]', error))
