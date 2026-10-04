@@ -1,0 +1,15 @@
+{
+  "manifest_version": 3,
+  "name": "BOOK☆WALKER 本棚カード表示",
+  "version": "0.1.0",
+  "description": "購入済み書籍一覧をシリーズごとのカード表示に切り替える",
+  "permissions": ["storage"],
+  "content_scripts": [
+    {
+      "matches": ["https://bookwalker.jp/holdBooks/*"],
+      "js": ["dist/content.js"],
+      "css": ["styles.css"],
+      "run_at": "document_idle"
+    }
+  ]
+}

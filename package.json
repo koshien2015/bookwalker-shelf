@@ -1,0 +1,18 @@
+{
+  "name": "bookwalker-shelf",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "build": "esbuild src/content.ts --bundle --format=iife --target=chrome120 --outfile=dist/content.js",
+    "watch": "pnpm build --watch",
+    "test": "vitest run",
+    "typecheck": "tsc --noEmit"
+  },
+  "devDependencies": {
+    "@types/chrome": "^0.3.0",
+    "esbuild": "^0.28.2",
+    "typescript": "^7.0.2",
+    "vitest": "^5.0.2"
+  }
+}
