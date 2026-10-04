@@ -24,7 +24,7 @@ Chrome ウェブストアには公開していないため、ソースからビ�
 
 ### 必要なもの
 
-- Node.js 20 以上
+- Node.js 22.12 以上（テストに使う vitest の要件）
 - pnpm（`corepack enable` で有効にできる）
 - Google Chrome（または Chromium 系ブラウザ）
 
