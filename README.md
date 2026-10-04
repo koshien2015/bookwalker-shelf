@@ -18,18 +18,48 @@ BOOK☆WALKER の購入済み書籍一覧（`https://bookwalker.jp/holdBooks/`�
 - ページを開いただけでは通信しない（保存済みの内容を表示する）。自動更新はしない
 - 巻の並び: 全巻のタイトルから重複なく巻数が取れれば巻数順、取れなければ配信日順
 
-## 使い方
+## インストール
+
+Chrome ウェブストアには公開していないため、ソースからビルドして読み込む。
+
+### 必要なもの
+
+- Node.js 20 以上
+- pnpm（`corepack enable` で有効にできる）
+- Google Chrome（または Chromium 系ブラウザ）
+
+### ビルド
 
 ```sh
+git clone <このリポジトリの URL>
+cd bookwalker-shelf
 pnpm install
 pnpm build
 ```
 
-1. Chrome で `chrome://extensions` を開き、右上の「デベロッパーモード」をオンにする
-2. 「パッケージ化されていない拡張機能を読み込む」でこのディレクトリを選ぶ
-3. 本棚ページを開き、「本棚を取得する」を押す
+`dist/content.js` が生成される。`dist/` はリポジトリに含めていないので、ビルドしないと拡張は動かない。
 
-コードを変更したら `pnpm build` し、拡張機能ページで再読み込みする。
+### Chrome に読み込む
+
+1. Chrome で `chrome://extensions` を開く
+2. 右上の「デベロッパーモード」をオンにする
+3. 「パッケージ化されていない拡張機能を読み込む」を押し、`manifest.json` のあるこのディレクトリを選ぶ
+4. BOOK☆WALKER にログインした状態で [購入済み書籍一覧](https://bookwalker.jp/holdBooks/) を開く
+5. 「本棚を取得する」を押す（1000 冊で 30 秒前後）
+
+### 更新
+
+```sh
+git pull
+pnpm install
+pnpm build
+```
+
+その後、`chrome://extensions` でこの拡張の再読み込みボタン（↻）を押し、本棚ページを開き直す。
+
+### アンインストール
+
+`chrome://extensions` で「削除」を押す。取得した本棚の内容（`chrome.storage.local`）も一緒に消える。
 
 ## 開発
 
