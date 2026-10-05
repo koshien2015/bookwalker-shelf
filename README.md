@@ -1,3 +1,5 @@
+<img width="1668" height="1086" alt="スクリーンショット 2026-10-04 16 52 27" src="https://github.com/user-attachments/assets/c0e3fabb-efc1-498f-a5e9-906b6881bcda" />
+
 # bookwalker-shelf
 
 BOOK☆WALKER の購入済み書籍一覧（`https://bookwalker.jp/holdBooks/`）を、シリーズごとのカード表示に切り替える Chrome 拡張。
